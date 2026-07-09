@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRIDGO - AI Fridge Detection</title>
+    <link rel="icon" href="../imgs/logo.PNG" type="image/png" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Material Symbols (icons) -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+      <!-- ============================================================
+    HEADER / NAVIGATION
+    Fixed at the top with a blur effect and subtle border.
+    ============================================================ -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <!-- Logo -->
+            <div class="logo">                <img src="../imgs/logo.PNG" alt="">
+</div>
+
+            <!-- Navigation -->
+            <nav class="nav-desktop">
+                <a href="../pages/landing_page.html" class="nav-link">Home</a>
+                <a href="../pages/about_us.html" class="nav-link">About Us</a>
+                
+                <!-- الزرار ده هيظهر في الموبايل جوه المنيو -->
+                <a href="../pages/main_app_dashboard.html" class="btn-primary mobile-only-btn" style="display: none;">Detect</a>
+            </nav>
+
+            <!-- CTA Button (desktop) -->
+            <a href="../pages/main_app_dashboard.html" class="btn-primary header-cta">Detect</a>
+
+            <!-- Mobile Menu Icon -->
+            <button class="menu-icon" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main class="main-content">
+
+        <!-- ============================================================
+        HERO SECTION
+        The main headline, description, and a mock interface preview.
+        ============================================================ -->
+        <section class="hero">
+            <div class="container hero-inner">
+
+                <!-- Status badge -->
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span class="status-label">AI Vision v2.4 Active</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="hero-title">
+                    Your Fridge, <br class="mobile-break" />
+                    <span class="text-gradient">Decoded by AI</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="hero-subtitle">
+                    Stop staring into the void. Snap a photo of your fridge and let AI detect what you have,
+                    suggest smart recipes, and turn leftovers into fresh ideas in seconds.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="hero-actions">
+                    <button class="btn-primary btn-with-icon get-start">
+                        <span class="material-symbols-outlined">photo_camera</span>
+                        Get Started
+                    </button>
+                    <a href="https://youtu.be/5J2FyAVwIpY" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-with-icon">
+                        View Demo
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+                <div class="hero-highlights">
+                    <div class="highlight-card">
+                        <span class="material-symbols-outlined">flash_on</span>
+                        <div>
+                            <strong>Instant Scan</strong>
+                            <p>Upload a photo and identify ingredients in seconds.</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                        <div>
+                            <strong>Smart Recipes</strong>
+                            <p>Get recipe ideas tailored to what you already have.</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="material-symbols-outlined">recycling</span>
+                        <div>
+                            <strong>Less Waste</strong>
+                            <p>Use ingredients smarter and reduce unnecessary spoilage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                ABSTRACT INTERFACE PREVIEW
+                A mock UI showing a camera feed + detected entities panel.
+                ============================================================ -->
+                <div class="interface-preview">
+                    <div class="interface-glow"></div>
+                    <div class="interface-card">
+
+                        <!-- Left: Camera Feed Mock -->
+                        <div class="interface-feed">
+                            <div class="feed-badge">
+                                <span class="status-dot status-dot-red"></span>
+                                SCANNING_
+                            </div>
+                            <div class="feed-image">
+                                <!-- The image is from Google's AIDA public URL -->
+                                <img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxnuqmbiphQ10Ut2_bIkIvMZ496dgvZhroXfKmdDK2AwdVTESMQB6F9ASK0gRITCAi_uDRBXNHV9Lc6NeiAe0WAp8jYSjZpJzeiaq8AV_3V1DVJOKxKed8DV1aDReRDF0mnkvCuzkQfg5AlwBqVTvoh_0_xtWE77WrvDsN1y7YoKPaVvaWYZIXzGpLGCbAkGyagzFyy7egvzYN0XBWi6iCzTjuJ6jNpM3Qv4O6YrOG_aEQvueY_WAPzg"
+                                alt="Futuristic view of a fridge interior with scanning grid overlay"
+                                />
+                                <div class="scan-lines"></div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Data Panel Mock -->
+                        <div class="interface-data">
+                            <h3 class="data-title">Detected Entities</h3>
+
+                            <!-- Entity 1 -->
+                            <div class="entity-item">
+                                <span class="material-symbols-outlined entity-icon">egg</span>
+                                <div class="entity-info">
+                                    <div class="entity-name">Organic Eggs</div>
+                                    <div class="entity-confidence">98% CONFIDENCE</div>
+                                </div>
+                            </div>
+
+                            <!-- Entity 2 -->
+                            <div class="entity-item">
+                                <span class="material-symbols-outlined entity-icon">nutrition</span>
+                                <div class="entity-info">
+                                    <div class="entity-name">Spinach</div>
+                                    <div class="entity-confidence">95% CONFIDENCE</div>
+                                </div>
+                            </div>
+
+                            <!-- Suggested Action -->
+                            <div class="entity-action">
+                                <div class="action-label">SUGGESTED ACTION</div>
+                                <button class="action-btn get-start">
+                                    <span class="material-symbols-outlined">restaurant_menu</span>
+                                        Spinach Frittata
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+        HOW IT WORKS SECTION
+        Three steps explaining the process.
+        ============================================================ -->
+        <section class="how-it-works">
+            <div class="container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">Augmented Culinary Intelligence</h2>
+                    <p class="section-subtitle">
+                        Three steps from chaos to calculated cuisine.
+                    </p>
+                </div>
+
+                <!-- Steps Grid -->
+                <div class="steps-grid">
+
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-icon-wrapper">
+                            <span class="material-symbols-outlined step-icon">photo_camera</span>
+                        </div>
+                        <div class="step-number">Step 01</div>
+                        <h3 class="step-title">Upload Fridge Photo</h3>
+                        <p class="step-description">
+                            Input visual data. A quick snapshot of your shelves is all
+                            the neural net requires to begin processing.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card step-card-highlight">
+                        <div class="step-icon-wrapper step-icon-secondary">
+                            <span class="material-symbols-outlined step-icon">document_scanner</span>
+                        </div>
+                        <div class="step-number step-number-secondary">Step 02</div>
+                        <h3 class="step-title">Detect Ingredients</h3>
+                        <p class="step-description">
+                            Our proprietary vision model extracts and categorizes
+                            individual items, calculating freshness probabilities.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card">
+                        <div class="step-icon-wrapper step-icon-tertiary">
+                            <span class="material-symbols-outlined step-icon">cookie</span>
+                        </div>
+                        <div class="step-number step-number-tertiary">Step 03</div>
+                        <h3 class="step-title">Get Recipes</h3>
+                        <p class="step-description">
+                            Execute synthesis. Receive optimized recipe vectors designed
+                            to maximize utility and minimize organic waste.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">FRIDGO</div>
+            <div class="footer-links">
+                <a href="../pages/privacy_policy.html" class="footer-link">Privacy Policy</a>
+                <a href="../pages/terms_of_service.html" class="footer-link">Terms of Service</a>
+                <a href="https://github.com/alio-elmotafy/Depi_project" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="#" class="footer-link">LinkedIn</a>
+                <a href="https://youtu.be/5J2FyAVwIpY" class="footer-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 FRIDGO Systems. All rights reserved.
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="../js/script.js?v=1"></script>
+
+</body>
+</html>
