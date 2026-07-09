@@ -261,7 +261,9 @@ App/
 
 ## 🎥 Demo
 
-[▶ Watch the project demo on YouTube](https://youtu.be/5J2FyAVwIpY)
+https://github.com/user-attachments/assets/7ada48fd-e10c-4889-88d6-141154096836
+
+Also available on [YouTube](https://youtu.be/5J2FyAVwIpY).
 
 ---
 
