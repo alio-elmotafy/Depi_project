@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AetherFridge - Detect</title>
+    <link rel="icon" href="../imgs/logo.PNG" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo"><img src="../imgs/logo.PNG" alt=""></div>
+            <nav class="nav-desktop">
+                <a href="../pages/landing_page.html" class="nav-link">Home</a>
+                <a href="../pages/about_us.html" class="nav-link">About Us</a>
+            </nav>
+            <a href="../pages/main_app_dashboard.html" class="btn-primary header-cta">Detect</a>
+            <button class="menu-icon" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="dashboard-grid">
+
+                <!-- LEFT COLUMN -->
+                <div class="left-column">
+                    <div class="upload-zone" id="uploadZone">
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <span class="material-symbols-outlined upload-icon">cloud_upload</span>
+                        <h2 class="upload-title">Drop your fridge photo here</h2>
+                        <p class="upload-sub">Our AI will analyze the contents instantly and suggest optimal recipes based on your available ingredients.</p>
+                        <button class="btn-outline" id="browseBtn">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                            Browse Files
+                        </button>
+                        <img id="previewImage" class="preview-img" />
+                        
+                        <!-- علامة التحميل اللي هتظهر فوق الصورة -->
+                        <div class="processing-overlay" id="processingOverlay">
+                            <div class="spinner"></div>
+                            <p class="processing-text">Analyzing Fridge...</p>
+                        </div>
+                    </div>
+
+                    <!-- Recipe Suggestions Section (Dynamic) -->
+                    <div class="recipe-section">
+                        <div class="recipe-header">
+                            <span class="material-symbols-outlined" style="color: var(--primary);">restaurant</span>
+                            <h3 class="recipe-heading">Suggested Recipes</h3>
+                        </div>
+                        <!-- النتائج هتظهر هنا بعد الـ API Call -->
+                        <div id="recipeGrid" class="recipe-grid">
+                            <p style="color: var(--on-surface-variant); text-align: center; width: 100%; padding: 20px;">
+                                Upload an image and detect ingredients to see recipes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- AI Chat Panel -->
+                    <div class="ai-panel">
+                        <div class="ai-header">
+                            <div class="ai-header-left">
+                                <span class="material-symbols-outlined">memory</span>
+                                AetherFridge AI
+                            </div>
+                            <span class="material-symbols-outlined ai-header-right">expand_more</span>
+                        </div>
+                        <div class="ai-body">
+                            <div class="ai-message">
+                                <div class="ai-avatar">
+                                    <span class="material-symbols-outlined" style="font-size:18px; color: var(--primary);">smart_toy</span>
+                                </div>
+                                <div class="ai-bubble">
+                                    <p>Hello! I can help you modify any recipe. Just ask me things like "Make it vegan" or "I don't have eggs, what can I use?".</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-footer">
+                            <div class="ai-input-wrapper">
+                                <input type="text" class="ai-input" placeholder="Ask for modifications..." />
+                                <button class="ai-send">
+                                    <span class="material-symbols-outlined">send</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="right-column">
+                    <div class="inventory-panel">
+                        <div class="inventory-header">
+                            <h3 class="inventory-title">
+                                <span class="material-symbols-outlined" style="color: var(--primary);">inventory_2</span>
+                                Detected Inventory
+                            </h3>
+                            <span id="inventoryCount" class="inventory-count">0 ITEMS</span>
+                        </div>
+
+                        <div class="category-section">
+                            <h4 class="category-heading">DETECTED ITEMS</h4>
+                            <!-- التاجز هتتولد هنا من الـ JS -->
+                            <div id="inventoryTags" class="category-tags">
+                                <p style="color: var(--on-surface-variant); font-size: 14px;">Waiting for scan...</p>
+                            </div>
+                        </div>
+
+                        <!-- إضافة عنصر يدوي -->
+                        <div class="add-item-wrapper">
+                            <input type="text" id="addItemInput" placeholder="Add item manually..." />
+                            <button id="addItemBtn" class="btn-add-item">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+
+                        <!-- زرار البحث -->
+                        <button id="findRecipesBtn" class="btn-primary" style="width: 100%; margin-top: 16px; justify-content: center;" disabled>
+                            <span class="material-symbols-outlined">restaurant_menu</span>
+                            Find Recipes
+                        </button>
+                        
+                        <div class="restock-box">
+                            <h4>
+                                <span class="material-symbols-outlined" style="font-size:16px; color: var(--secondary);">lightbulb</span>
+                                Pro Tip
+                            </h4>
+                            <p>You can manually add missing ingredients using the box above, or click the 'X' to remove false positives before searching.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">AetherFridge</div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="https://github.com/alio-elmotafy/Depi_project" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="#" class="footer-link">LinkedIn</a>
+                <a href="#" class="footer-link">YouTube</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 AetherFridge Systems. All rights reserved.</div>
+        </div>
+        </div>
+    </footer>
+    <script src="../js/script.js?v=1"></script>
+</body>
+</html>
